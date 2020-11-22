@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Java Script</title>
+    </head>
+
+    <body>
+
+        <input type="text" id="texto">
+        <button id="btn1">tudo junto</button>
+        <button id="btn2">lista com *</button>
+
+        <script>
+
+            let body = document.querySelector('body')
+
+            let textoMeu = document.querySelector('#texto')
+
+            let btn1 = document.querySelector('#btn1')
+
+            let btn2 = document.querySelector('#btn2')
+
+            btn1.addEventListener('click', ()=>{
+                let textoP = document.createElement('p')
+                body.appendChild(textoP)
+                textoP.innerHTML = textoMeu.value;
+            })
+
+            btn2.addEventListener('click', ()=>{
+
+                let te = textoMeu.value.split(',')
+
+                let array = []
+
+                for(let i of te){
+                    array.push(i)
+                }
+
+                for(let j of array){
+                    let listaOrdenada = document.createElement('li')
+                    body.appendChild(listaOrdenada)
+                    listaOrdenada.innerHTML = j
+                }
+            })
+
+        </script>
+    </body>
+</html>

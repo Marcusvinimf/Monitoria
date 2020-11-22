@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Poligono</title>
+    </head>
+
+    <body>
+    <!--  Sabemos que triângulos, quadrados e retângulos são polígonos. Com base nisso, foi pedido ao seu time que
+        desenvolva classes para direfentes polígonos, mas que tenham uma estrutura similar. Utilize conceitos de
+        orientação a objetos para que os polígonos sejam capazes de:
+        Guardar a quantidade de lados que possuem;
+        Guardar o tamanho de cada um dos lados;
+        Sejam capazes de dizer seu perímetro;
+        Sejam capazes de dizer sua área;
+        Os polígonos implementados devem ser:
+
+        Quadrado;
+        Retângulo;
+        Triângulo;
+        Trapézio. -->
+
+        <script>
+
+            class Poligono {
+
+                constructor (tamanhoDosLados) {
+                    this.tamanhoDosLados = tamanhoDosLados;
+                }   
+
+                calculaPerimetro(){
+                    
+                    let calcula = 0
+
+                    for(let i of this.tamanhoDosLados){
+                        calcula += i
+                    }
+                    return calcula
+                }
+            }
+
+            //-------------------------------------------------------------------
+
+            class Quadrado extends Poligono {
+
+                constructor (tamanhoDosLados) {
+
+                    super(tamanhoDosLados);
+
+                }
+
+                calculaArea() {
+
+                    let calcula = 1
+
+                    for(let i of this.tamanhoDosLados){
+                        calcula*=i
+                    }
+                    return calcula;
+                }
+
+            }
+
+            //------------------------------------------------------------------
+
+            class Retangulo extends Poligono{
+
+                constructor(tamanhoDosLados, base, altura){
+
+                    super(tamanhoDosLados);
+                    this.base = base;
+                    this.altura = altura;
+                    
+                }
+
+                calculaArea(){
+
+                    return this.base*this.altura
+                }
+            }
+
+            //------------------------------------------------------------------
+
+            class Triangulo extends Poligono{
+
+                constructor(tamanhoDosLados, base, altura){
+
+                    super(tamanhoDosLados)
+                    this.base = base;
+                    this.altura = altura;
+                }
+
+                calculaArea(){
+
+                    return (this.base*this.altura)/2
+                }
+
+            }
+
+            //-------------------------------------------------------------------
+
+            class Trapezio extends Poligono{
+
+                constructor(tamanhoDosLados, baseM, basem, altura){
+
+                    super(tamanhoDosLados)
+                    this.baseM = baseM;
+                    this.basem = basem;
+                    this.altura = altura;
+                }
+
+                calculaArea(){
+
+                    return this.altura*(this.baseM+this.basem)/2
+                }
+
+            }
+
+
+
+            let quadrado1 = new Quadrado ([4,4,4,4]);
+
+            console.log(quadrado1);
+
+            console.log(quadrado1.calculaPerimetro())
+
+            console.log(quadrado1.calculaArea())
+
+
+
+            let retangulo1 = new Retangulo([4,2,4,2], 5, 10)
+
+            console.log(retangulo1);
+
+            console.log(retangulo1.calculaPerimetro())
+
+            console.log(retangulo1.calculaArea())
+
+
+
+            let tringulo1 = new Triangulo ([3,3,3], 4, 9)
+
+            console.log(tringulo1);
+
+            console.log(tringulo1.calculaPerimetro())
+
+            console.log(tringulo1.calculaArea())
+
+
+
+            let trapezio1 = new Trapezio ([5,8,5,3], 8, 3, 8)
+
+            console.log(trapezio1);
+
+            console.log(trapezio1.calculaPerimetro())
+
+            console.log(trapezio1.calculaArea())
+
+
+        </script>
+        
+    </body>
+</html>
